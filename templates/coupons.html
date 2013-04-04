@@ -1,0 +1,38 @@
+{{ define "title" }}
+	Coupon Overview
+{{ end }}
+
+{{ define "head" }}
+	
+{{ end }}
+
+{{ define "content" }}
+<!-- home page content -->
+<div class="container" style="max-width:100%;">
+  <div class="row span7 offset2">
+    <div class="well content">
+      <legend>Active Coupons</legend>
+        {{ range .coupons }}
+          <p>
+            <div class="img-polaroid" style="width:70%;margin:0px auto;">
+              <div class="pad">
+                <span class="lead text-center">
+                  <p><img src="/static/img/logo-tiny-clear.png" width="250"></img></p>
+                  <hr/>
+                  <p>Use code "<span class="text-zoom">{{ .Code }}</span>" to get {{ .Discount }}% off!</p>
+                </span>
+              </div>
+            </div>
+          </p>
+        {{ else }}
+          <p class="lead text-zoom">There are currently no active coupons</p>
+        {{ end }}
+    </div>
+  </div>
+</div>
+<!-- home page content -->
+{{ end }}
+
+{{ define "script" }}
+
+{{ end }}

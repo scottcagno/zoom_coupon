@@ -1,0 +1,39 @@
+{{ define "title" }}
+	Coupon
+{{ end }}
+
+{{ define "head" }}
+	
+{{ end }}
+
+{{ define "content" }}
+<!-- home page content -->
+<div class="container" style="max-width:100%;">
+  <div class="row span7 offset2">
+    <div class="well">
+      <legend>Generate Coupon Codes or <a href="/coupons">View Active Coupons</a></legend>
+      <form method="post" action="/generator">
+        <fieldset>
+          <label></label>
+          <div class="input-append">
+            <input name="discount" type="number" value="10" placeholder="Discnt" class="input-mini" required>
+            <span class="add-on">%</span>
+          </div>
+          <label></label>
+          <div class="input-append">
+            <input name="quantity" type="number" value="1" placeholder="Quntity" class="input-mini" required>
+            <span class="add-on">&nbsp;</span>
+          </div>
+          <label></label>
+          <button class="btn">Generate</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- home page content -->
+{{ end }}
+
+{{ define "script" }}
+
+{{ end }}

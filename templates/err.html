@@ -1,0 +1,19 @@
+{{ define "title" }}
+	Error {{ .code }}
+{{ end }}
+
+{{ define "head" }}
+
+{{ end }}
+
+{{ define "content" }}
+<div class="row-fluid">
+	<div class="span12 text-center well">
+		<p class="lead text-error">{{ .code }} - {{ .status }}</p>
+	</div>
+</div>
+{{ end }}
+
+{{ define "script" }}
+
+{{ end }}
