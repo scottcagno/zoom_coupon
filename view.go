@@ -8,7 +8,6 @@ package main
 
 import (
 	"labix.org/v2/mgo/bson"
-	//"fmt"
 	"net/http"
 	"net_kit/data"
 	"net_kit/frms"
@@ -46,7 +45,7 @@ func login(w http.ResponseWriter, r *http.Request) {
 func loginAction(w http.ResponseWriter, r *http.Request) {
 	form := LoginForm()
 	if !form.IsValid(r) {
-		ts.Render(w, "login.html", tmpl.M{"form": form.Render(frms.INLINE)})
+		ts.Render(w, "login.html", tmpl.M{"button": "disabled", "form": form.Render(frms.INLINE)})
 		return
 	}
 	u, p := r.FormValue("username"), r.FormValue("password")
@@ -56,7 +55,7 @@ func loginAction(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, "/generator", 301)
 		return
 	}
-	form.Errors["username"] = "invalid username or password"
+	form.SetError("username", "*incorrect username or passowrd")
 	ts.Render(w, "login.html", tmpl.M{"button": "disabled", "form": form.Render(frms.INLINE)})
 	return
 }

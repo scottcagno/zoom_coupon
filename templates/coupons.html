@@ -11,6 +11,7 @@
 <div class="container" style="max-width:100%;">
   <div class="row span7 offset2">
     <div class="well content">
+      <span class="pull-right"><button onclick="printDoc('#printDiv')" class="btn"><i class="icon-print"></i> </button></span>
       <legend>Active Coupons</legend>
         {{ range .coupons }}
           <p>
@@ -30,9 +31,38 @@
     </div>
   </div>
 </div>
+
+<div id="printDiv" class="hide">
+  {{ range .coupons }}
+    <div class="img-polaroid inline pull-left pad" style="width:250px;">
+      <div class="pad">
+        <span class="lead text-center">
+          <p><img src="/static/img/logo-tiny-clear.png" width="150"></img></p>
+          <hr/>
+          <p>
+            {{ .Code }}
+            <br/>
+            <span class="lead-small">{{ .Discount }} % off your next order!</span>
+          </p>
+        </span>
+      </div>
+    </div>
+  {{ end }}
+</div>
 <!-- home page content -->
 {{ end }}
 
 {{ define "script" }}
-
+<script>
+  function printDoc(doc){
+    popup($(doc).html());
+  }
+  function popup(dat){
+    var win = window.open('', 'Active Coupons', 'height=500, width=600');
+    win.document.write('<html><head><link href="/static/css/zoom.css" rel="stylesheet" media="all"><link href="/static/css/bootstrap.min.css" rel="stylesheet" media="all"><link href="/static/css/bootstrap-responsive.min.css" rel="stylesheet" media="all"><title>Active Coupons</title></head><body>'+dat+'</body></html>');
+    win.print();
+    win.close();
+    return true;
+  }
+</script>
 {{ end }}

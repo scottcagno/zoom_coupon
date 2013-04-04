@@ -7,7 +7,6 @@
 package main
 
 import (
-	//"labix.org/v2/mgo/bson"
 	"net_kit/frms"
 	"time"
 )
@@ -41,6 +40,8 @@ func LoginForm() frms.Form {
 				Type:     "password",
 				Holder:   "Password",
 				Required: true,
+				Min:      6,
+				Max:      16,
 			},
 		},
 	}
