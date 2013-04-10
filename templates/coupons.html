@@ -34,16 +34,13 @@
 
 <div id="printDiv" class="hide">
   {{ range .coupons }}
-    <div class="img-polaroid inline pull-left pad" style="width:250px;">
-      <div class="pad">
-        <span class="lead text-center">
-          <p><img src="/static/img/logo-tiny-clear.png" width="150"></img></p>
+    <div class="inline pull-left pad" style="width:252px;heigh:144px;">
+      <div class="text-center pull-center" style="margin:0px auto;">
+        <span>
+          <img src="/static/img/logo-tiny-clear.png" width="125"></img>
           <hr/>
-          <p>
-            {{ .Code }}
-            <br/>
-            <span class="lead-small">{{ .Discount }} % off your next order!</span>
-          </p>
+          <span>Use "{{ .Code }}" for {{ .Discount }} % off</span>
+          <small>zoomenvelopes.com</small>
         </span>
       </div>
     </div>
